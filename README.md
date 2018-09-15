@@ -10,7 +10,7 @@
 
 The most popular choice for rendering HTML in a Kitura web app is to use the Stencil templating language, but it exposes your application to **runtime errors** and **invalid HTML**. Our plugin prevents these runtime issues at compile-time by embedding HTML directly into Swift’s powerful type system. It uses the [swift-html](https://github.com/pointfreeco/swift-html) DSL for constructing HTML documents using plain Swift data structures.
 
-## Example
+## Usage
 
 To use the plugin all you have to do is return a `Node` value from your router callback:
 
@@ -30,6 +30,24 @@ router.get("/") { request, response, next in
 Kitura.addHTTPServer(onPort: 8080, with: router)
 Kitura.run()
 ```
+
+## Take it for a spin
+
+We've included a sample Kitura application in this repo to show off its usage. To run the app immediately, simply do:
+
+* `swift run HtmlKituraSupportExample`
+* Open your browser to `http://localhost:8080`
+
+The HTML for that page is constructed and rendered with [swift-html](https://github.com/pointfreeco/swift-html)!
+
+If you want to run the app in Xcode so that you can play around with the HTML, try this:
+
+* `git clone https://github.com/pointfreeco/swift-html-kitura`
+* `cd swift-html-kitura`
+* `make xcodeproj`
+* Select the `HtmlKituraSupportExample` target
+* Build and run `cmd+R`
+* Open your browser to `http://localhost:8080`
 
 ## Installation
 
