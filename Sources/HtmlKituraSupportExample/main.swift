@@ -73,7 +73,7 @@ let router = Router()
 
 router.get("/") { request, response, next in
   response.send(
-    h1(["Hello, type-safe HTML on Kitura!"])
+    Node.h1("Hello, type-safe HTML on Kitura!")
   )
   next()
 }
