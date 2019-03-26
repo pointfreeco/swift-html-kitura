@@ -41,30 +41,31 @@ h2 {
 
 router.get("/") { request, response, next in
   response.send(
-    html([
-      head([style(stylesheet)]),
+    Node.html(
+      .head(.style(safe: stylesheet)),
 
-      body([
-        h1(["swift-html-kitura"]),
-        blockquote([
+      .body(
+        .h1("swift-html-kitura"),
+        .blockquote(
           "A Kitura plugin for type-safe, transformable HTML views using ",
-          a([href("https://github.com/pointfreeco/swift-html")], ["swift-html"])
-          ]),
+          .a(attributes: [.href("https://github.com/pointfreeco/swift-html")], "swift-html")
+        ),
 
-        h2(["Motivation"]),
-        p(["""
+        .h2("Motivation"),
+        .p("""
 The most popular choice for rendering HTML in a Kitura web app is to use the Stencil templating language,
 but it exposes your application to runtime errors and invalid HTML. Our plugin prevents these
 runtime issues at compile-time by embedding HTML directly into Swift’s powerful type system. It uses the
 swift-html DSL for constructing HTML documents using plain Swift data structures.
 """
-          ]),
+        ),
 
-        h2(["Usage"]),
-        p(["""
+        .h2("Usage"),
+        .p("""
 To use the plugin all you have to do is return a `Node` value from your router callback:
-"""]),
-        pre(["""
+"""
+        ),
+        .pre(#"""
 import HtmlKituraSupport
 import Kitura
 
@@ -72,46 +73,49 @@ let router = Router()
 
 router.get("/") { request, response, next in
   response.send(
-    h1(["Hello, type-safe HTML on Kitura!"])
+    Node.h1("Hello, type-safe HTML on Kitura!")
   )
   next()
 }
 
 Kitura.addHTTPServer(onPort: 8080, with: router)
 Kitura.run()
-"""
-          ]),
+"""#
+        ),
 
-        h2(["Take it for a spin"]),
-        p(["""
+        .h2("Take it for a spin"),
+        .p("""
 We've included a sample Kitura application in this repo to show off its usage. To run the app
 immediately, simply do:
-"""]),
-        ul([
-          li([code(["swift run HtmlKituraSupportExample"])]),
-          li(["Open your browser to ", code(["http://localhost:8080"])])
-          ]),
-        p(["""
+"""
+        ),
+        .ul(
+          .li(.code("swift run HtmlKituraSupportExample")),
+          .li("Open your browser to \(.code("http://localhost:8080"))")
+        ),
+        .p("""
 The HTML for that page is constructed and rendered with swift-html!
-"""]),
-        p(["""
+"""
+        ),
+        .p("""
 If you want to run the app in Xcode so that you can play around with the HTML, try this:
-"""]),
-        ul([
-          li([code(["git clone https://github.com/pointfreeco/swift-html-kitura"])]),
-          li([code(["cd swift-html-kitura"])]),
-          li([code(["make xcodeproj"])]),
-          li(["Select the ", code(["HtmlKituraSupportExample"]), " target"]),
-          li(["Build and run ", code(["cmd+R"])]),
-          li(["Open your browser to ", code(["http://localhost:8080`"])])
-          ])
-        ])
-      ])
+"""
+        ),
+        .ul(
+          .li(.code("git clone https://github.com/pointfreeco/swift-html-kitura")),
+          .li(.code("cd swift-html-kitura")),
+          .li(.code("make xcodeproj")),
+          .li("Select the \(.code("HtmlKituraSupportExample")) target"),
+          .li("Build and run \(.code("cmd+R"))"),
+          .li("Open your browser to \(.code("http://localhost:8080"))"
+          )
+        )
+      )
     )
+  )
 
-    next()
+  next()
 }
-
 
 Kitura.addHTTPServer(onPort: 8080, with: router)
 Kitura.run()
