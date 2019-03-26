@@ -55,7 +55,7 @@ If you want to use swift-html-kitura in a project that uses [SwiftPM](https://sw
 
 ``` swift
 dependencies: [
-  .package(url: "https://github.com/pointfreeco/swift-html-kitura.git", from: "0.1.0")
+  .package(url: "https://github.com/pointfreeco/swift-html-kitura.git", from: "0.3.0")
 ]
 ```
 
