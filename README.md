@@ -1,7 +1,13 @@
+# swift-html-kitura has been deprecated
+
+With IBM [discontinuing its involvement](https://forums.swift.org/t/december-12th-2019/31735) in server-side Swift, we are choosing to deprecate support for this library. It will remain in an archived state as an example of how to integrate with [swift-html](https://github.com/pointfreeco/swift-html).
+
+---
+
 # swift-html-kitura
 
 [![Swift 5](https://img.shields.io/badge/swift-5-ED523F.svg?style=flat)](https://swift.org/download/)
-[![Linux CI](https://img.shields.io/travis/pointfreeco/swift-html-kitura/master.svg?label=linux)](https://travis-ci.org/pointfreeco/swift-html-kitura)
+[![Linux CI](https://img.shields.io/travis/pointfreeco/swift-html-kitura/master.svg?label=linux)](https://trav is-ci.org/pointfreeco/swift-html-kitura)
 [![@pointfreeco](https://img.shields.io/badge/contact-@pointfreeco-5AA9E7.svg?style=flat)](https://twitter.com/pointfreeco)
 
 [Kitura](https://www.kitura.io) plugin for type-safe, transformable HTML views using [swift-html](https://github.com/pointfreeco/swift-html).
